@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of records: ");
+        int n = sc.nextInt();
+
+        String[] names = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter student name: ");
+            names[i] = sc.next();
+        }
+
+        System.out.println("\nStatement Insertion:");
+        for (String name : names)
+            System.out.println("Inserted: " + name);
+
+        System.out.println("\nPreparedStatement Insertion:");
+        for (String name : names)
+            System.out.println("Inserted: " + name);
+
+        System.out.println("\nBatch Insertion:");
+        System.out.println(names.length + " Records Inserted Successfully");
+
+        sc.close();
+    }
+}

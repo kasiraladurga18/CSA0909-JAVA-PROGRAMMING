@@ -1,0 +1,48 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+
+        Connection con = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/college",
+            "root", "your_password");
+
+        System.out.print("Enter ID: ");
+        String id = sc.nextLine();
+
+        System.out.print("Enter Password: ");
+        String pwd = sc.nextLine();
+
+        // Unsafe login
+        String sql = "SELECT * FROM users WHERE id='" +
+                     id + "' AND pwd='" + pwd + "'";
+
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        if (rs.next())
+            System.out.println("Unsafe Login Successful");
+        else
+            System.out.println("Unsafe Login Failed");
+
+        // Safe login
+        String query = "SELECT * FROM users WHERE id=? AND pwd=?";
+
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, id);
+        ps.setString(2, pwd);
+
+        ResultSet rs2 = ps.executeQuery();
+
+        if (rs2.next())
+            System.out.println("Safe Login Successful");
+        else
+            System.out.println("Safe Login Failed");
+
+        con.close();
+    }
+}

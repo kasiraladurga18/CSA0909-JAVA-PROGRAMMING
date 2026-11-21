@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of bus passes: ");
+        int n = sc.nextInt();
+
+        int valid = 0, invalid = 0;
+
+        for (int i = 1; i <= n; i++) {
+
+            System.out.println("\nEnter Pass ID:");
+            String id = sc.next();
+
+            System.out.println("Enter Student Name:");
+            String name = sc.next();
+
+            System.out.println("Enter Amount:");
+            double amount = sc.nextDouble();
+
+            if (amount > 0) {
+                System.out.println("Valid Record: " + id);
+                valid++;
+            } else {
+                System.out.println("Invalid Record: " + id);
+                invalid++;
+            }
+        }
+
+        System.out.println("\nMigration Report");
+        System.out.println("Valid Records: " + valid);
+        System.out.println("Invalid Records: " + invalid);
+
+        sc.close();
+    }
+}
