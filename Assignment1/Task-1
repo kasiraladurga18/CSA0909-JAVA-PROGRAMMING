@@ -1,0 +1,31 @@
+class Vehicle {
+String vehicleNo;
+String vehicleType;
+
+```
+Vehicle(String no, String type) {
+    vehicleNo = no;
+    vehicleType = type;
+}
+
+void display() {
+    System.out.println("Vehicle Number: " + vehicleNo);
+    System.out.println("Vehicle Type: " + vehicleType);
+    System.out.println();
+}
+```
+
+}
+
+public class Main {
+public static void main(String[] args) {
+Vehicle v1 = new Vehicle("TN01AB1234", "Car");
+Vehicle v2 = new Vehicle("TN02CD5678", "Two-Wheeler");
+
+```
+    v1.display();
+    v2.display();
+}
+```
+
+}
