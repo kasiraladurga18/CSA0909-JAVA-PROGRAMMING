@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Amount in INR: ");
+        double amount = sc.nextDouble();
+
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+
+        System.out.print("Select Currency: ");
+        int choice = sc.nextInt();
+
+        if (amount < 0) {
+            System.out.println("Invalid Amount");
+        } else if (choice == 1) {
+            System.out.println("USD: " + amount * 0.012);
+        } else if (choice == 2) {
+            System.out.println("EUR: " + amount * 0.011);
+        } else {
+            System.out.println("Invalid Choice");
+        }
+    }
+}

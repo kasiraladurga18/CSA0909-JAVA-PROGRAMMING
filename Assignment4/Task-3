@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] books = {"Java", "Python", "C++"};
+
+        System.out.print("Enter Book Name: ");
+        String search = sc.nextLine();
+
+        boolean found = false;
+
+        for (String book : books) {
+            if (book.equalsIgnoreCase(search)) {
+                found = true;
+                System.out.println("Book Found: " + book);
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Book Not Found");
+        }
+    }
+}

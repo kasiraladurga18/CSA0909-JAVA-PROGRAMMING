@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Patient ID: ");
+        String id = sc.nextLine();
+
+        System.out.println("Select Department:");
+        System.out.println("1. Cardiology");
+        System.out.println("2. Neurology");
+        System.out.println("3. Orthopedic");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        String doctor = "";
+
+        switch (choice) {
+            case 1: doctor = "Dr. Kumar"; break;
+            case 2: doctor = "Dr. Ravi"; break;
+            case 3: doctor = "Dr. Arun"; break;
+            default:
+                System.out.println("Invalid Department");
+                return;
+        }
+
+        System.out.print("Enter Time Slot: ");
+        String time = sc.nextLine();
+
+        if (id.isEmpty() || time.isEmpty()) {
+            System.out.println("Invalid Details");
+        } else {
+            System.out.println("Appointment Booked");
+            System.out.println("Patient ID: " + id);
+            System.out.println("Doctor: " + doctor);
+            System.out.println("Time: " + time);
+        }
+    }
+}
